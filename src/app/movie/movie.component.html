@@ -1,0 +1,31 @@
+<div class="movie">
+	<div class="movie__header">
+		<div class="movie__header__poster" [style.background-image]="'url(' + movie.poster + ')'"></div>
+
+		<div class="movie__header__content">
+			<div class="movie__header__titles">
+				<h1 class="movie__title">{{ movie.title}}</h1>
+				<h2 class="movie__subtitle">{{ movie.year }}</h2>
+			</div>
+
+			<div class="movie__header__actions">
+				<a [href]="movie.link" target="blank" class="movie__button">IMDb</a>
+				<button *ngIf="!expanded; else hideInfoButton" (click)="getMoreInfo(movie.id)" class="movie__button">more info</button>
+				<ng-template #hideInfoButton>
+					<button (click)="hideInfo()" class="movie__button">hide info</button>
+				</ng-template>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="movie__info" [@expandMoreInfo]="expanded">
+		<div class="movie__info__content" *ngIf="movieInfo">
+			<p>{{ movieInfo.actors }}</p>
+
+			<p>{{ movieInfo.plot }}</p>
+
+			<p><span class="movie__info__content__rating">Rating: </span>{{ movieInfo.rating }}</p>
+		</div>
+	</div>
+</div>

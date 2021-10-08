@@ -1,0 +1,79 @@
+@import '../styles/colors.scss';
+
+.movie {
+	min-height: 3vw;
+	background-color: $light;
+	border-radius: 15px;
+	
+	&__header {
+		display: flex;
+
+		&__poster {
+			@media (min-width: 1024px) {
+			 	min-height: 250px;
+			}
+
+			flex: 0 0 30%;
+			border-radius: 15px 0 0 15px;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+		}
+	
+		&__content {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 100%;
+			padding: 10px;
+		}
+
+		&__actions {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__info {
+		overflow: hidden;
+		font-size: 0.9em;
+
+		&__content {
+			padding: 15px;
+
+			&__rating {
+				font-weight: 800;
+			}
+		}
+
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 800;
+	}
+
+	&__subtitle {
+		font-weight: 300;
+	}
+
+	&__button {
+		font-size: .8rem;
+		padding: 10px;
+		margin-top: auto;
+		background: none;
+		color: $primary;
+		text-align: right;
+		font-weight: 800;
+		border: none;
+		border-bottom: 1px solid transparent;
+		transition: border-color .2s ease-in-out;
+		cursor: pointer;
+		text-decoration: none;
+
+		&:hover {
+			border-bottom: 1px solid $primary;
+		}
+	}
+}
